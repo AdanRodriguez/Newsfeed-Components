@@ -37,44 +37,87 @@ let menuItems = [
 
 const Header = document.querySelector('.header');
 
-menuItems.forEach(items => {
-  Header.appendChild(itemCreator(menuItems.items))
-});
+// menuItems.forEach(items => {
+//   // Header.appendChild(itemCreator(menuItems.items))
+//   const menuItem = document.createElement('li');
+//     menuItem.textContent = items;
+//     ul.append(menuItem);
+// });
 
 function itemCreator(text) {
 
   const menu = document.createElement('div')
   const ul = document.createElement('ul')
-  const li = document.createElement('li');
+//  const li = document.createElement('li');
 
   menu.appendChild(ul);
-  ul.appendChild(li);
+  // ul.appendChild(li);
 
   menu.classList.add('menu');
+  
+  menuItems.forEach(items => {
+    // Header.appendChild(itemCreator(menuItems.items))
+    const menuItem = document.createElement('li');
+      menuItem.textContent = items;
+      ul.append(menuItem);
+  });
   // ul.classList.add('ul');
   // li.classList.add('li');
 
 
-  li.textContent = text;
+  // li.textContent = text;
 
   
 
-  menu.addEventListener('click', event => {
-    menu.classList.toggle('article-open')
-    });
+  // menu.addEventListener('click', event => {
+  //   menu.classList.toggle('article-open')
+  //   });
 
-    const Menu = document.querySelector('.menu');
+    // const Menu = document.querySelector('.menu');
 
     const menuButton = document.querySelector('.menu-button');
 
-    const toggleMenu = () => {
-      menu.classList.toggle('menu--open');
-    };
+    // const toggleMenu = () => {
+    //   menu.classList.toggle('menu--open');
+    // };
 
-    menuButton.addEventListener('click', toggleMenu);
+    // menuButton.addEventListener('click', toggleMenu);
 
+    menuButton.addEventListener('click', () => menu.classList.toggle('menu--open'));
 
-  return li;
+  return menu;
 };
 
+  Header.prepend(itemCreator(menuItems));
 
+
+// function createMenu(array) {
+//   // Define menu elements --------------------------------
+
+//   const menu = document.createElement('div');	 
+//   const list = document.createElement('ul');
+
+
+//    // Set up structure of menu elements -----------------------
+
+//   menu.append(list);	  
+//   array.forEach(item =>	{ 
+//     const menuItem = document.createElement('li');
+//     menuItem.textContent = item;
+//     list.append(menuItem);
+//   });
+
+//    // Set up menu class names -------------------------------
+//   menu.classList.add('menu');
+
+//    const menuBtn = document.querySelector('.menu-button');
+
+//    menuBtn.addEventListener('click', () => menu.classList.toggle('menu--open'));
+
+
+//    return menu;
+// }	;
+
+//  const header = document.querySelector('.header');
+
+//  header.prepend(createMenu(menuItems));
